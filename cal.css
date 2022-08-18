@@ -1,0 +1,45 @@
+ body {
+    width: 100vw;
+    height: 100vh;
+    margin: 5em;
+    display: flex;
+    flex-direction: row;
+
+ }
+
+ #body {
+    width: 50vw ;
+    height: 60vh;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: ash;
+    padding: 10px;
+    border-radius: 10px;
+ }
+ #screen {
+    width: 90%;
+    height: 40%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: wheat;
+    margin: 10px auto;
+ }
+.btn {
+    width: 5%px;
+    height: 5%px;
+    border-width: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.number {
+    width: 30px;
+    height: 30px;
+}
