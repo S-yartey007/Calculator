@@ -1,7 +1,8 @@
 const figures = document.querySelectorAll('button');
-const screen = document.querySelector('#screen');
+const screen = document.querySelector('.screen');
 const result = document.querySelector('.equalto')
 const clear = document.querySelector('.clear');
+const finalResult =  document.querySelector('.show-result');
 let isCalculating = true;
 function onScreen() {
     if(isCalculating){
@@ -11,19 +12,18 @@ function onScreen() {
 }
     }
    
-    
-        
 
 function showResult() {
     let array = Array.from(screen.textContent)
     array.pop()
    
-            screen.textContent += `${eval(array.join(""))}`
+    finalResult.textContent = `${eval(array.join(""))}`
 
-       isCalculating = false;
+    isCalculating = false;
 }
 function clearScreen() {
     screen.textContent = "";
+    finalResult.textContent = "";
     isCalculating = true;
 }
 
