@@ -1,34 +1,72 @@
-const figures = document.querySelectorAll('button');
+const numbers = document.querySelectorAll('.number');
+const operators = document.querySelectorAll('.opt');
 const screen = document.querySelector('.screen');
-const result = document.querySelector('.equalto')
-const clear = document.querySelector('.clear');
-const finalResult =  document.querySelector('.show-result');
+const clearContent = document.querySelector('.clear');
+const equalto = document.querySelector('.equalto');
+const result = document.querySelector('.show-result');
 let isCalculating = true;
-function onScreen() {
-    if(isCalculating){
-        screen.textContent+=`${this.textContent}`; 
-    } else{
-        isCalculating = false;
+let num1, num2, operator;
+
+function add(num1,num2) {
+ let result = num1 + num2;
+ return Math.round(result);
 }
+
+function sub(num1,num2) {
+let result = num1 - num2;
+return Math.round(result);
+}
+
+function divide(num1,num2) {
+let result = num1 / num2;
+return Math.round(result);
+}
+
+function multiply(num1,num2) {
+let result = num1 * num2;
+return Math.round(result);
+}
+
+
+function populate() {
+ if(isCalculating){
+    screen.textContent += `${this.innerText}`;
+ }
+ 
+ 
+}
+function clear() {
+isCalculating = true;
+ screen.textContent = " ";
+}
+function store() {
+    num1 = parseInt(screen.textContent.slice(0,-1),10)
+    operator = screen.textContent.slice(-1);
+    console.log(num1, operator);
+}
+function operate() {
+   
+    let index = parseInt(screen.textContent.indexOf(operator),10);
+    console.log("index:",index);
+    num2 = parseInt(screen.textContent.slice(index+1));
+    console.log("value:",num2);
+    if(operator === '-') {
+        result.textContent = `${sub(num1,num2)}`
+    } else if (operator === '+') {
+        result.textContent = `${add(num1,num2)}`
+    } else if(operator === '/') {
+        result.textContent = `${divide(num1,num2)}`
+    } else if(operator === '*') {
+        result.textContent = `${multiply(num1,num2)}`
+    } else {
+        console.log("Not applicable");
     }
-   
-
-function showResult() {
-    let array = Array.from(screen.textContent)
-    array.pop()
-   
-    finalResult.textContent = `${eval(array.join(""))}`
-
     isCalculating = false;
-}
-function clearScreen() {
-    screen.textContent = "";
-    finalResult.textContent = "";
-    isCalculating = true;
+ 
 }
 
-figures.forEach(operator => {
-    operator.addEventListener('click', onScreen )
-})
-result.addEventListener('click', showResult)
-clear.addEventListener('click', clearScreen)
+numbers.forEach(number => number.addEventListener('click', populate));
+operators.forEach(operator => operator.addEventListener('click', populate));
+clearContent.addEventListener('click', clear);
+operators.forEach(operator => operator.addEventListener('click', store));
+equalto.addEventListener('click', operate);
