@@ -25,10 +25,28 @@ body {
 }
 .screen {
    display: flex;
-   justify-content: flex-end;
+   justify-content: space-between;
    border: 1px solid black;
    flex-grow: 1;
    background-color: aliceblue;
+   padding: 10px;
+   font-size: 1em;
+   font-weight: 600;
+   gap: 10px;
+}
+ .inputs {
+   display: flex;
+   justify-content: space-around;
+} 
+
+.results {
+   display: flex;
+   justify-content: flex-end;
+   align-self: flex-end;
+} 
+
+.resultbox {
+   align-self: flex-end;
 }
 .button-area {
    display: flex;
