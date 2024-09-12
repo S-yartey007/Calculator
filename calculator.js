@@ -27,8 +27,7 @@ function Calculator() {
         return a - b;
     }
     this.divide = function divide(a,b) {
-        if(b === 0) console.error("You cannot divide by zero")
-        else return (a / b).toFixed(2);
+        return (a / b).toFixed(2);
     }
     this.multiply = function multiply(a,b) {
         return (a * b).toFixed(4);
